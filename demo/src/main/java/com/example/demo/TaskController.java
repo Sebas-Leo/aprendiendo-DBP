@@ -3,6 +3,8 @@ package com.example.demo;
 import com.example.demo.model.Task;
 import com.example.demo.service.TaskService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
@@ -20,5 +22,11 @@ public class TaskController {
     @GetMapping
     public List<Task> getAllTasks() {
         return taskService.getAllTasks();
+    }
+
+    @PostMapping
+    public Task addTask(@RequestBody Task task) {
+        taskService.addTask(task);
+    return task;
     }
 }

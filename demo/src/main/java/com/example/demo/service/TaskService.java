@@ -21,4 +21,11 @@ public class TaskService {
         tasks.add(new Task(1L, "Aprender Spring", false));
         tasks.add(new Task(2L, "Hacer el reto", true));
     }
+
+    private Long currentId = 1L;
+
+    public void addTask(Task task) {
+        task.setId(currentId++);
+        tasks.add(task);
+    }
 }
